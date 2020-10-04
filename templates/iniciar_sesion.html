@@ -1,0 +1,64 @@
+{% extends "padre.html" %}
+
+{% block estilo %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_general.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_modify.css"/>
+
+{% endblock %}
+
+{% block barra_y_body %}
+
+    <div id="rejilla_central">
+
+    {% block barra %}
+
+    <aside id="barra-lateral">
+
+        {{ parent() }}
+
+        {% if user %}
+                    <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                    <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                {% endif %}
+                {% if rol > 3 %}
+                    Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                {% endif %}
+    </aside>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+
+        <div id="tabla-principal">
+            {% if not user %}
+            <h1>Inicia sesión</h1>
+            <form action="iniciar_sesion.php" method="post">
+                <p>
+                    Nombre: <input type="text" name="nick" id="nick" required>
+                </p>
+                <p>
+                    Contraseña: <input type="password" name="pass" id="pass" required>
+                </p>
+                <p>
+                    <input id="boton_inicio_sesion" value="Iniciar Sesión" type="submit">
+                </p>
+            </form>
+            {% endif %}
+            {% if error %}
+                {{ error }}
+            {% endif %}
+            {% if user %}
+
+                Iniciaste sesión correctamente.
+
+            {% endif %}
+        </div>
+
+    {% endblock %}
+    
+    </div>
+
+    <!--<script type="text/javascript" src="scripts/evento.js"></script>-->
+{% endblock %}

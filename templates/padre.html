@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html land="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Práctica 1</title>
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet"/>
+
+    {% block estilo %}
+
+        <link rel="stylesheet" type="text/css" href="/styles/estilo_general.css"/>
+
+    {% endblock %}
+
+    {% block script %}
+    {% endblock %}
+
+</head>
+<body>
+    <div id="pagina">
+
+    {% block encabezado %}
+
+        <header>
+            <div id="encabezado">
+            <div class="item-encabezado"><img src="/img/logo.png" id="logo"/></div>
+            <div class="item-encabezado"><div id="titulo">Gamevents</div>
+            <nav>
+                <span class="menu"><a href="./index.php">Inicio</a></span> 
+                <span class="menu">Contacto</span> 
+                <span class="menu">Acerca de</span>
+            </nav>
+            </div>
+            </div>
+        </header>
+        
+    {% endblock %}
+
+    {% block barra_y_body %}
+    
+        {% block barra %}
+
+            
+                <p>
+                Bienvenido a Gamevents, la página donde puedes consultar distintos eventos de videojuegos de diferentes zonas de España. ¡No te pierdas ninguno!
+                </p>
+                <p>
+                    Web desarrollada por Noelia Escalera Mejías (grupo 1). 
+                </p>
+                <p>
+                    <a href="https://github.com/Arelaxe"><strong>Enlace a Github</strong></a>
+                </p>
+
+        {% endblock %}
+
+
+        {% block cuerpo %}
+        {% endblock %}
+
+    {% endblock %}
+
+    {% block pie %}
+
+        <footer>
+            &copy 2020 - Noelia Escalera Mejías
+        </footer>
+
+    {% endblock %}
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,144 @@
+#encabezado {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: 70% 30%;
+    background-color: white;
+    color: black;
+    width: 100%;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    text-align: center;
+    font-size: 300%;
+    position: relative;
+    max-width: 100%;
+    border-radius: 15px;
+    max-height: 25%;
+    min-height: 25%;
+}
+
+#izda {
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+    grid-gap: 5px;
+    position: relative;
+    float: right;
+}
+
+#galeria{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+    grid-gap: 10px;
+}
+
+.foto_gal{
+    width: 100%;
+}
+
+#imagenes {
+    position: relative;
+    float: right;
+    grid-gap: 1px;
+    max-width: 100%;
+}
+
+#titulo {
+    position: relative;
+    text-align: center;
+    left: 20%;
+}
+
+#logo {
+    position: relative;
+    width: 15%;
+    min-width: 15%;
+    margin-top: 1%;
+    margin-right: 50%;
+}
+
+#pagina {
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+}
+
+#cuerpo-subpag {
+    float: left;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 1em 1em 1em 1em;
+    background-color: white;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    position: relative;
+    top: 5px;
+    grid-gap: 1%;
+}
+
+#barra-lateral{
+    position: relative;
+    top: 5px;
+    background-color: white;
+    padding: 50% 4% 50% 4%;
+    float: left;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#pie{
+    background-color: white;
+    text-align: center;
+}
+
+footer {
+    clear: both;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    text-align: center;
+    padding: 3%;
+    background-color: white;
+    position: relative;
+    top: 10px;
+    max-height: 100%;
+    min-height: 100%;
+    width: 394%;
+}
+
+#sub-imagen {
+    width: 100%;
+    position: relative;
+    min-width: 25%;
+
+}
+
+#rejilla_central {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+}
+
+#iconos {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    position: relative;
+    grid-gap: 5px;
+    width: 25%;
+    margin-left: 35%;
+}
+
+.icono {
+    width: 100%;
+}

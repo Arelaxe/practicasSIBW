@@ -1,0 +1,75 @@
+{% extends "padre.html" %}
+
+    {% block estilo %}
+
+        <link rel="stylesheet" type="text/css" href="/styles/estilo_imprimir.css"/>
+
+    {% endblock %}
+
+    {% block encabezado %}
+
+        <header>
+            <div id="encabezado">
+            <div class="item-encabezado"><div id="titulo">Gamevents</div></div>
+            <div class="item-encabezado"><img src="/img/logo.png" id="logo"/></div>
+            </div>
+        </header>
+
+    {% endblock %}
+
+    {% block barra_y_body %}
+
+        <div id="rejilla_central">
+
+        {% block barra %}
+
+            <aside id="barra-lateral">
+
+                {{ parent() }}
+        
+                {% if user %}
+                            <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                            <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                        {% endif %}
+                        {% if rol > 3 %}
+                            Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                        {% endif %}
+            </aside>
+
+        {% endblock %}
+
+        {% block cuerpo %}
+
+            <div id="cuerpo-subpag">
+                <div id="izda">
+                    <div id="texto" class="item">
+                        <h1>
+                            {{ evento['nombre'] }}
+                        </h1>
+                        <h2>
+                            {{ evento['lugar'] }}
+                        </h2>
+                        <h3>
+                            {{ evento['fecha'] }}
+                        </h3>
+                        <p>
+                            {{ evento['descripcion'] }}
+                        </p>
+                        <ul>
+                            <li><a href="{{ evento['web'] }}">Página web del evento</a></li>
+                        </ul>
+                    </div>
+                    <div id="galeria" class="item">
+                        <img src="{{ evento ['img_galeria1'] }}" class="foto_gal"/>
+                        <img src="{{ evento ['img_galeria2'] }}" class="foto_gal"/>
+                        <img src="{{ evento ['img_galeria3'] }}" class="foto_gal"/>
+                    </div>
+                </div>
+                <div id="imagenes">
+                    <div class="figure"><img src="{{ evento['imagen'] }}" id="sub-imagen"/><p id="pie">Icono oficial de {{ evento['nombre'] }}</p></div>
+                </div>
+            </div>
+        
+        {% endblock %}
+        
+    {% endblock %}

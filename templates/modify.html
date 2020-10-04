@@ -1,0 +1,51 @@
+{% extends "padre.html" %}
+
+{% block estilo %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_general.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_modify.css"/>
+
+{% endblock %}
+
+{% block barra_y_body %}
+
+    <div id="rejilla_central">
+
+    {% block barra %}
+
+    <aside id="barra-lateral">
+
+        {{ parent() }}
+
+        {% if user %}
+                    <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                    <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                {% endif %}
+                {% if rol > 3 %}
+                    Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                {% endif %}
+    </aside>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+
+        <div id="tabla-principal">
+            <h1>Editar perfil</h1>
+            <p>
+                <form action="modify.php" method="post">
+                    Email: <input type="email" name="email" id="email" required> <input value="Cambiar" type="submit">
+                </form>
+            </p>
+            <p>
+                <form action="modify.php" method="post">
+                    Contraseña: <input type="password" name="pass" id="pass" required> <input value="Cambiar" type="submit">
+                </form>
+            </p>    
+        </div>
+
+    {% endblock %}
+    
+    </div>
+{% endblock %}

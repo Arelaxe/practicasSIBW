@@ -1,0 +1,115 @@
+{% extends "padre.html" %}
+
+{% block estilo %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_general.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_modify.css"/>
+
+{% endblock %}
+
+{% block barra_y_body %}
+
+    <div id="rejilla_central">
+
+    {% block barra %}
+
+    <aside id="barra-lateral">
+
+        {{ parent() }}
+
+        {% if user %}
+                    <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                    <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                {% endif %}
+                {% if rol > 3 %}
+                    Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                {% endif %}
+    </aside>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+
+        <div id="tabla-principal">
+            <h1>Editar evento</h1>
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Nombre: <input type="text" name="nombre" id="nombre" required> <input value="Cambiar" type="submit">
+                </form>
+            </p>
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Lugar: <input type="text" name="lugar" id="lugar" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p>    
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Fecha: <input type="text" name="fecha" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p> 
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Descripcion: <input type="text" name="descripcion" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p> 
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Web: <input type="text" name="web" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p> 
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Facebook: <input type="text" name="facebook" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p> 
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Twitter: <input type="text" name="twitter" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p> 
+            <p>
+                <form action="editar_evento.php" method="post" enctype="multipart/form-data">
+                    Imagen principal: <input type="file" name="imagen" />
+                    <input type="submit" value="Cambiar" />
+                </form>
+            </p>
+            <p>
+                <form action="editar_evento.php" method="post" enctype="multipart/form-data">
+                    Imagen galería 1: <input type="file" name="img1" />
+                    <input type="submit" value="Cambiar" />
+                </form>
+            </p>
+            <p>
+                <form action="editar_evento.php" method="post" enctype="multipart/form-data">
+                    Imagen galería 2: <input type="file" name="img2" />
+                    <input type="submit" value="Cambiar" />
+                </form>
+            </p>
+            <p>
+                <form action="editar_evento.php" method="post" enctype="multipart/form-data">
+                    Imagen galería 3: <input type="file" name="img3" />
+                    <input type="submit" value="Cambiar" />
+                </form>
+            </p>
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Etiqueta 1: <input type="text" name="etiqueta1" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p> 
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Etiqueta 2: <input type="text" name="etiqueta2" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p>
+            <p>
+                <form action="editar_evento.php" method="post">
+                    Etiqueta 3: <input type="text" name="etiqueta3" required> <input value="Cambiar" type="submit"/>
+                </form>
+            </p>
+        </div>
+
+    {% endblock %}
+    
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "padre.html" %}
+
+{% block estilo %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_general.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_modify.css"/>
+{% endblock %}
+
+
+{% block barra_y_body %}
+
+    <div id="rejilla_central">
+
+    {% block barra %}
+
+    <aside id="barra-lateral">
+
+        {{ parent() }}
+
+        {% if user %}
+                    <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                    <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                {% endif %}
+                {% if rol > 3 %}
+                    Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                {% endif %}
+    </aside>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+
+        <div id="tabla-principal">
+            Busca un evento: 
+            <input type="text" name="texto_busqueda" id="texto_busqueda" />
+            {% if rol > 2 %}
+                <a href="add_evento.php"><img class="icon" src=/img/añadir.png /></a>
+            {% endif %}
+            <div id="resultados_busqueda"></div>
+        </div>
+
+    {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/lista_eventos.js"></script>
+{% endblock %}

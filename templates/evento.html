@@ -1,0 +1,116 @@
+{% extends "padre.html" %}
+
+    {% block estilo %}
+
+        {{ parent() }}
+        <link rel="stylesheet" type="text/css" href="/styles/estilo_evento.css"/>
+
+    {% endblock %}
+    
+    {% block script %}
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script type="text/javascript" src="scripts/comentarios.js"></script>
+
+    {% endblock %}
+
+    {% block barra_y_body %}
+
+        <div id="rejilla_central">
+
+            {% block barra %}
+
+            <aside id="barra-lateral">
+
+                {{ parent() }}
+        
+                {% if user %}
+                            <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                            <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                        {% endif %}
+                        {% if rol > 3 %}
+                            Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                        {% endif %}
+            </aside>
+
+            {% endblock %}
+
+        {% block cuerpo %}
+            
+            <div id="cuerpo-subpag">
+                <div id="izda">
+                    {% if rol > 2 %}
+                        <a href="borrar_evento.php?id={{ evento['id'] }}"><img class="icon" src=/img/borrar.png /></a><a href="editar_evento.php?id={{ evento['id'] }}"><img class="icon" src=/img/editar.png /></a></p>
+                    {% endif %}
+                    <div id="texto" class="item">
+                        <h1>
+                            {{ evento['nombre'] }}
+                        </h1>
+                        <h2>
+                            {{ evento['lugar'] }}
+                        </h2>
+                        <h3>
+                            {{ evento['fecha'] }}
+                        </h3>
+                        <p>
+                            {{ evento['descripcion'] }}
+                        </p>
+                        <ul>
+                            <li><a href="{{ evento['web'] }}">Página web del evento</a></li>
+                        </ul>
+                    </div>
+                    <div id="galeria" class="item">
+                        <img src="{{ evento ['img_galeria1'] }}" class="foto_gal"/>
+                        <img src="{{ evento ['img_galeria2'] }}" class="foto_gal"/>
+                        <img src="{{ evento ['img_galeria3'] }}" class="foto_gal"/>
+                    </div>
+                </div>
+                <div id="imagenes">
+                    <div class="figure"><img src="{{ evento['imagen'] }}" id="sub-imagen"/><p class="pie">Icono oficial de {{ evento['nombre'] }}</p></div>
+                        <div id="iconos">
+                            <a href="{{ evento ['facebook'] }}"><img src="/img/facebook.png" class="icono"/></a>
+                            <a href="{{ evento ['twitter'] }}"><img src="/img/twitter.png" class="icono"/></a>
+                            <a href="/evento_imprimir.php?ev={{ evento['id'] }}"><img src="/img/imprimir.png" class="icono"/></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        {% endblock %}
+
+    {% endblock %}
+
+    {% block pie %}
+
+        <div>
+            <footer id="pie">
+                &copy 2020 - Noelia Escalera Mejías
+                <div id="panel-comentarios">
+                    <div id="zona-comentarios">
+                        
+                    </div>
+                    {% if not user %}
+                    <div id="login">
+                        No estás identificado, <a href="/iniciar_sesion.php">Inicia sesión</a> o <a href="/registro.php">Regístrate</a> 
+                    </div>
+                    {% else %}
+                    <div id="formulario">
+                        <form action="evento.php" method="post">
+                            <p>
+                                Comentario: <textarea oninput="PalabrasCensuradas()" id="comentario_enviado" name="comentario" rows="3" cols="30" required></textarea>
+                            </p>
+                            <p>
+                                <input id="boton-enviar" value="Enviar" type="submit">
+                            </p>
+                        </form>
+                        {% if rol > 1 %}
+                            Eres moderador, pulsa <a href="/lista_comentarios.php">aquí</a> para moderar comentarios.
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+                <element onclick="DespliegaMenu()"><img src="/img/comentario.png" id="icono-comentario"/></element>
+            </footer>
+        </div>
+        <script type="text/javascript" src="scripts/evento.js"></script>
+    {% endblock %}

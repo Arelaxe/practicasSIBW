@@ -1,0 +1,67 @@
+{% extends "padre.html" %}
+
+{% block estilo %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_general.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_modify.css"/>
+
+{% endblock %}
+
+{% block barra_y_body %}
+
+    <div id="rejilla_central">
+
+    {% block barra %}
+
+    <aside id="barra-lateral">
+
+        {{ parent() }}
+
+        {% if user %}
+                    <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                    <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                {% endif %}
+                {% if rol > 3 %}
+                    Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                {% endif %}
+    </aside>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+
+        <div id="tabla-principal">
+            <h1>Añade un nuevo evento</h1>
+            <form action="add_evento.php" method="post">
+                <p>
+                    Nombre: <input type="text" name="nombre" id="nombre" required />
+                </p>
+                <p>
+                    Lugar: <input type="text" name="lugar" id="lugar" required />
+                </p>
+                <p>
+                    Fecha: <input type="text" name="fecha" id="fecha" required />
+                </p>
+                <p>
+                    Descripción: <input type="text" name="descripcion" id="descripcion" required />
+                </p>
+                <p>
+                    Web: <input type="text" name="web" id="web" />
+                </p>
+                <p>
+                    Facebook: <input type="text" name="facebook" id="facebook" />
+                </p>
+                <p>
+                    Twitter: <input type="text" name="twitter" id="twitter" />
+                </p>
+                <p>
+                    <input id="boton_registro" value="Añadir" type="submit" />
+                </p>
+            </form>
+        </div>
+
+    {% endblock %}
+    
+    </div>
+{% endblock %}

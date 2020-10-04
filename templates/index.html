@@ -1,0 +1,47 @@
+{% extends "padre.html" %}
+
+{% block estilo %}
+
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="/styles/estilo_index.css"/>
+
+{% endblock %}
+
+{% block barra_y_body %}
+
+    <div id="rejilla_central">
+
+    {% block barra %}
+        <aside id="barra-lateral">
+
+        {{ parent() }}
+
+        {% if user %}
+                    <p>Estás identificado, puedes <a href="/logout.php">Cerrar sesión</a></p>
+                    <p>También puedes <a href="/modify.php">Modificar tus datos</a></p>
+                {% endif %}
+                {% if rol > 3 %}
+                    Pulsa <a href="lista_usuarios.php">aquí</a> para administrar usuarios
+                {% endif %}
+        </aside>
+
+    {% endblock %}
+
+    {% block cuerpo %}
+
+        <div id="tabla-principal">
+            <div class="item-tabla"><a href="/evento.php?ev=1"><div class="texto-imagen">GAMEPOLIS</div><div class="imagen"><img src="/img/gamepolis.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=2"><div class="texto-imagen">FICZONE</div><div class="imagen"><img src="/img/ficzone.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=3"><div class="texto-imagen">MARBECON</div><div class="imagen"><img src="/img/marbecon.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=4"><div class="texto-imagen">NICE ONE BARCELONA</div><div class="imagen"><img src="/img/niceone.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=5"><div class="texto-imagen">DREAMHACK SEVILLA</div><div class="imagen"><img src="/img/dreamhacksevilla.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=6"><div class="texto-imagen">DREAMHACK VALENCIA</div><div class="imagen"><img src="/img/dreamhackvalencia.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=7"><div class="texto-imagen">RETROPIXEL MÁLAGA</div><div class="imagen"><img src="/img/retropixel.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=8"><div class="texto-imagen">RETROMADRID</div><div class="imagen"><img src="/img/RetroMadrid.png" class="ima"/></div></a></div>
+            <div class="item-tabla"><a href="/evento.php?ev=9"><div class="texto-imagen">ARCADECON 2020</div><div class="imagen"><img src="/img/arcadecon.png" class="ima"/></div></a></div>
+            <a href="/lista_eventos.php">Ver todos los eventos</a>
+        </div>
+    {% endblock %}
+    
+    </div>
+{% endblock %}

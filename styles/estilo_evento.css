@@ -1,0 +1,105 @@
+#cuerpo-subpag {
+    float: left;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 1em 1em 1em 1em;
+    background-color: lightblue;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    position: relative;
+    top: 5px;
+    grid-gap: 1%;
+}
+/*
+#izda {
+    display: grid;
+    grid-template-rows: auto auto;
+    width: 100%;
+    grid-gap: 5px;
+    position: relative;
+    float: right;
+}*/
+
+#galeria{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+    grid-gap: 10px;
+}
+
+.foto_gal{
+    width: 100%;
+}
+
+.icon{
+    width: 5%;
+}
+
+#rejilla_central {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 25% 75%;
+    width: 100%;
+}
+
+#iconos {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    position: relative;
+    grid-gap: 5px;
+    width: 25%;
+    margin-left: 35%;
+}
+
+.icono {
+    width: 100%;
+}
+
+#imagenes {
+    position: relative;
+    float: right;
+    grid-gap: 1px;
+    max-width: 100%;
+}
+
+.pie {
+    text-align: center;
+}
+
+#sub-imagen {
+    width: 100%;
+    position: relative;
+    min-width: 25%;
+
+}
+
+#icono-comentario{
+    width: 5%;
+    float: right;
+}
+
+#panel-comentarios {
+    position: fixed;
+    float: right;
+    bottom: 10%;
+    left: 80%;
+    background-color: lightyellow;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: black;
+    display: none;
+    text-align: left;
+    padding-left: 1%;
+    font-size: 75%;
+}
+
+#boton-enviar {
+    margin-left: 40%;
+}
+
+.nombre-comentario {
+    font-size: 120%;
+}
